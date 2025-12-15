@@ -22,8 +22,7 @@ The change in $S$ when $q$ is replaced by $q + \delta q$ is:
 
 $$
 \int_{t_1}^{t_2} L(q + \delta q, \dot{q} + \delta \dot{q}, t)\,dt
--
-\int_{t_1}^{t_2} L(q, \dot{q}, t)\,dt
+- \int_{t_1}^{t_2} L(q, \dot{q}, t)\,dt
 $$
 
 Now we begin to expand the first integrand in powers. Since the variations are extremely small, their higher order infinitesimals can be neglected. Based on this consideration, we only retain its first-order infinitesimal terms. So we obtain:
@@ -57,8 +56,7 @@ After substitution, we obtain:
 
 $$
 \left. \frac{\partial L}{\partial \dot{q}} \delta q \right|_{t_1}^{t_2}
--
-\int_{t_1}^{t_2} \delta q \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) dt
+-\int_{t_1}^{t_2} \delta q \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) dt
 $$
 
 
