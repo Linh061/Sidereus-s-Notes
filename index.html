@@ -2,16 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <!-- 标题 -->
   <title>Sidereus's Notes</title>
-
-  <!-- 移动端适配 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Docsify 主题（干净、学术感） -->
+  <!-- 移动端适配（优化） -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <!-- Docsify 主题 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-
   <!-- KaTeX 数学公式样式 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 </head>
@@ -20,45 +16,67 @@
   <!-- Docsify 根容器 -->
   <div id="app">Loading…</div>
 
-  <!-- Docsify 配置 -->
- <script>
-  window.$docsify = {
-    /* ===== 基本信息 ===== */
-    name: "Sidereus's Notes",
-    repo: 'Linh061/Sidereus-s-Notes',
+  <!-- Docsify 核心配置 -->
+  <script>
+    window.$docsify = {
+      /* ===== 基本信息 ===== */
+      name: "Sidereus's Notes",
+      repo: 'Linh061/Sidereus-s-Notes',
+      basePath: '/Sidereus-s-Notes/', // 关键：匹配 GitHub Pages 路径
 
-    /* ===== 文档结构 ===== */
-    loadSidebar: '_sidebar.md',  // 指向根目录下的 _sidebar.md
-    subMaxLevel: 3,              // 显示目录子级别
+      /* ===== 文档结构 ===== */
+      loadSidebar: '_sidebar.md',
+      subMaxLevel: 3,
 
-    /* ===== Markdown & 搜索 ===== */
-    search: {
-      paths: 'auto',
-      placeholder: 'Search',
-      noData: 'No results found'
-    },
+      /* ===== 搜索插件 ===== */
+      search: {
+        paths: 'auto',
+        placeholder: 'Search',
+        noData: 'No results found',
+        depth: 6 // 新增：搜索深度，覆盖更多文档
+      },
 
-    /* ===== 分页 ===== */
-    pagination: {
-      previousText: 'Previous',
-      nextText: 'Next',
-      crossChapter: true
-    },
+      /* ===== 分页插件 ===== */
+      pagination: {
+        previousText: 'Previous',
+        nextText: 'Next',
+        crossChapter: true
+      },
 
-      /* ===== LaTeX 支持 ===== */
+      /* ===== Giscus 评论区钩子 ===== */
+      // 页面渲染完成后加载评论区
       plugins: [
-        function(hook, vm) {
-          hook.doneEach(function() {
-            if (window.renderMathInElement) {
-              renderMathInElement(document.getElementById('app'), {
-                delimiters: [
-                  {left: "$$", right: "$$", display: true},
-                  {left: "$", right: "$", display: false},
-                  {left: "\\(", right: "\\)", display: false},
-                  {left: "\\[", right: "\\]", display: true}
-                ]
-              });
-            }
+        function (hook, vm) {
+          // 1. 定义评论区容器（放在文档底部）
+          hook.afterEach(function (html) {
+            return html + `
+              <div id="giscus-container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;"></div>
+            `;
+          });
+
+          // 2. 加载 Giscus 脚本（避免重复加载）
+          hook.doneEach(function () {
+            if (document.getElementById('giscus-script')) return;
+            const script = document.createElement('script');
+            script.id = 'giscus-script';
+            script.src = 'https://giscus.app/client.js';
+            script.async = true;
+            script.crossOrigin = 'anonymous';
+            // 替换为你在 Giscus 官网生成的参数！！！
+            script.setAttribute('data-repo', 'Linh061/Sidereus-s-Notes');
+            script.setAttribute('data-repo-id', '你的 repo-id'); // 替换为实际值
+            script.setAttribute('data-category', 'General'); // 替换为实际分类
+            script.setAttribute('data-category-id', '你的 category-id'); // 替换为实际值
+            script.setAttribute('data-mapping', 'pathname'); // 按页面路径关联评论
+            script.setAttribute('data-strict', '0');
+            script.setAttribute('data-reactions-enabled', '1');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'bottom');
+            script.setAttribute('data-theme', 'light');
+            script.setAttribute('data-lang', 'en');
+            script.setAttribute('data-loading', 'lazy');
+            script.setAttribute('data-crossorigin', 'anonymous');
+            document.getElementById('giscus-container').appendChild(script);
           });
         }
       ]
@@ -67,16 +85,12 @@
 
   <!-- Docsify 核心 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
-
   <!-- 搜索插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-
   <!-- 分页插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@1.0.1/dist/docsify-pagination.min.js"></script>
-
-  <!-- KaTeX 渲染插件 -->
+  <!-- LaTeX 数学公式渲染 -->
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-latex@0.1.1/dist/docsify-latex.min.js"></script>
-
 </body>
 </html>
