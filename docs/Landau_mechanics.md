@@ -54,7 +54,7 @@ $$
 After substitution, we obtain:
 
 $$
-\frac{\partial L}{\partial \dot{q}} \delta q \right|_{t_1}^{t_2}-\int_{t_1}^{t_2} \delta q \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) dt
+\left. \frac{\partial L}{\partial \dot{q}} \, \delta q \right|_{t_1}^{t_2} - \int_{t_1}^{t_2} \delta q \, \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) dt
 $$
 
 
