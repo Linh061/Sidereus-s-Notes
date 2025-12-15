@@ -18,10 +18,56 @@ Now we begin to derive the differential equations that solve the problem of mini
 
 Let $q = q(t)$ be the function for which $S$ is minimum. This means that $\delta S$ is increased when $q(t)$ is replaced by any function of the form $q(t) + \delta q(t)$, where $\delta q(t)$ is called a variation of the function $q(t)$ and it is also a function which is infinitesimal everywhere in the interval of time from $t_1$ to $t_2$. Since, for $t = t_1$ and for $t = t_2$, all the functions must take the values $q^{(1)}$ and $q^{(2)}$ respectively, it follows that $\delta q(t_1) = \delta q(t_2) = 0$.
 
-The change in ( S ) when ( q ) is replaced by ( q + \delta q ) is $$ \int_{t_1}^{t_2} L(q + \delta q, \dot{q} + \delta \dot{q}, t) dt - \int_{t_1}^{t_2} L(q, \dot{q}, t)dt $$
+The change in $S$ when $q$ is replaced by $q + \delta q$ is:
 
-Now we begin to expand the first integrand in powers. Since the variations are extremely small, their higher order infinitesimals can be neglected. Based on this consideration, we only retain its first-order infinitesimal terms. So we obtain $$ L(q, \dot{q}, t) + \frac{\partial L}{\partial q}\delta q + \frac{\partial L}{\partial \dot{q}} \delta \dot{q} $$
+$$
+\int_{t_1}^{t_2} L(q + \delta q, \dot{q} + \delta \dot{q}, t)\, dt
+- \int_{t_1}^{t_2} L(q, \dot{q}, t)\, dt
+$$
 
-After substitution and simplification, the principle of least action can be written in the form $$ \delta S = \int_{t_1}^{t_2} \left( \frac{\partial L}{\partial q}\delta q + \frac{\partial L}{\partial \dot{q}}\delta \dot{q} \right) dt $$ . Since ( \delta \dot{q} = \frac{d}{dt}\delta q ), namely, ( \delta \dot{q}dt = d\delta q ) we can integrate the second term by parts.
+Now we begin to expand the first integrand in powers. Since the variations are extremely small, their higher-order infinitesimals can be neglected. Based on this consideration, we only retain its first-order infinitesimal terms. So we obtain:
 
-Because ( u = \frac{\partial L}{\partial \dot{q}} ), ( du = \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) dt ); ( dv = \delta \dot{q}dt = d\delta q ), ( v = \delta q ). After substitution, we obtain $$ \left. \frac{\partial L}{\partial \dot{q}}\delta q \right|{t_1}^{t_2} - \int{t_1}^{t_2} \delta q \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) dt $$ . And since ( \delta q(t_1) = \delta q(t_2) = 0 ), the first term vanishes for all values of ( \delta q ), so we obtain $$ \delta S = \int_{t_1}^{t_2} \left( \frac{\partial L}{\partial q} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} \right) dt = 0 $$ . A more concise form after rearranging the terms is: $$ \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) - \frac{\partial L}{\partial q} = 0 $$
+$$
+L(q, \dot{q}, t) + \frac{\partial L}{\partial q}\, \delta q + \frac{\partial L}{\partial \dot{q}}\, \delta \dot{q}
+$$
+
+After substitution and simplification, the principle of least action can be written in the form:
+
+$$
+\delta S = \int_{t_1}^{t_2} \left(
+\frac{\partial L}{\partial q}\, \delta q + \frac{\partial L}{\partial \dot{q}}\, \delta \dot{q}
+\right) dt
+$$
+
+Since $\delta \dot{q} = \frac{d}{dt} \delta q$, namely, $\delta \dot{q}\, dt = d\delta q$, we can integrate the second term by parts.
+
+Because
+
+$$
+u = \frac{\partial L}{\partial \dot{q}}, \quad du = \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) dt
+$$
+
+$$
+dv = \delta \dot{q}\, dt = d\delta q, \quad v = \delta q
+$$
+
+After substitution, we obtain:
+
+$$
+\left. \frac{\partial L}{\partial \dot{q}}\, \delta q \right|_{t_1}^{t_2}
+- \int_{t_1}^{t_2} \delta q\, \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) dt
+$$
+
+And since $\delta q(t_1) = \delta q(t_2) = 0$, the first term vanishes. For all values of $\delta q$ we obtain:
+
+$$
+\delta S = \int_{t_1}^{t_2} \left(
+\frac{\partial L}{\partial q} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}}
+\right) dt = 0
+$$
+
+A more concise form after rearranging the terms is:
+
+$$
+\frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) - \frac{\partial L}{\partial q} = 0
+$$
