@@ -61,7 +61,7 @@ $$
 After substitution, we obtain:
 
 $$
-\left. \frac{\partial L}{\partial \dot{q}} \delta q \right|_{t_1}^{t_2} - \int_{t_1}^{t_2} \delta q \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) dt
+\left. \frac{\partial L}{\partial \dot{q}} \delta q \right|_{t_1}^{t_2} - \int_{t_1}^{t_2} \delta q \frac{d}{dt} ( \frac{\partial L}{\partial \dot{q}} \right) dt
 $$
 
 Since $\delta q(t_1) = \delta q(t_2) = 0$, the first term vanishes. So for all values of $\delta q$ we obtain:
