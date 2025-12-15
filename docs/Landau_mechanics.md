@@ -60,9 +60,7 @@ $$
 And since $\delta q(t_1) = \delta q(t_2) = 0$, the first term vanishes. For all values of $\delta q$ we obtain:
 
 $$
-\delta S = \int_{t_1}^{t_2} \left(
-\frac{\partial L}{\partial q} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}}
-\right) dt = 0
+\delta S = \int_{t_1}^{t_2} \left(\frac{\partial L}{\partial q} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} \right)dt = 0
 $$
 
 A more concise form after rearranging the terms is:
