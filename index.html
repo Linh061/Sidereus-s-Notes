@@ -21,31 +21,30 @@
   <div id="app">Loading…</div>
 
   <!-- Docsify 配置 -->
-  <script>
-    window.$docsify = {
-      /* ===== 基本信息 ===== */
-      name: "Sidereus's Notes",
-      repo: 'Linh061/Sidereus-s-Notes',
+ <script>
+  window.$docsify = {
+    /* ===== 基本信息 ===== */
+    name: "Sidereus's Notes",
+    repo: 'Linh061/Sidereus-s-Notes',
 
-      /* ===== 文档结构 ===== */
-      loadSidebar: true,
-      loadSidebar: '_sidebar.md',
-      loadNavbar: true,
-      subMaxLevel: 3,
+    /* ===== 文档结构 ===== */
+    loadSidebar: '_sidebar.md',  // 指向根目录下的 _sidebar.md
+    loadNavbar: true,            // 如果有 navbar 文件，可以开启
+    subMaxLevel: 3,              // 显示目录子级别
 
-      /* ===== Markdown & 搜索 ===== */
-      search: {
-        paths: 'auto',
-        placeholder: 'Search',
-        noData: 'No results found'
-      },
+    /* ===== Markdown & 搜索 ===== */
+    search: {
+      paths: 'auto',
+      placeholder: 'Search',
+      noData: 'No results found'
+    },
 
-      /* ===== 分页 ===== */
-      pagination: {
-        previousText: 'Previous',
-        nextText: 'Next',
-        crossChapter: true
-      },
+    /* ===== 分页 ===== */
+    pagination: {
+      previousText: 'Previous',
+      nextText: 'Next',
+      crossChapter: true
+    },
 
       /* ===== LaTeX 支持 ===== */
       plugins: [
