@@ -1,4 +1,4 @@
 - [Homepage](README.md)
 - Physics
-  - [Landau_mechanics](docs/Laudau_mechanics.md)
+  - [Landau_mechanics](docs/Landau_mechanics.md)
 - Mathematics
