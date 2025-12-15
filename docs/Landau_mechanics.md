@@ -21,14 +21,13 @@ Let $q = q(t)$ be the function for which $S$ is minimum. This means that $\delta
 The change in $S$ when $q$ is replaced by $q + \delta q$ is:
 
 $$
-\int_{t_1}^{t_2} L(q + \delta q, \dot{q} + \delta \dot{q}, t)\, dt
-- \int_{t_1}^{t_2} L(q, \dot{q}, t)\, dt
+\int_{t_1}^{t_2} L(q + \delta q, \dot{q} + \delta \dot{q}, t)dt - \int_{t_1}^{t_2} L(q, \dot{q}, t)dt
 $$
 
 Now we begin to expand the first integrand in powers. Since the variations are extremely small, their higher-order infinitesimals can be neglected. Based on this consideration, we only retain its first-order infinitesimal terms. So we obtain:
 
 $$
-L(q, \dot{q}, t) + \frac{\partial L}{\partial q}\, \delta q + \frac{\partial L}{\partial \dot{q}}\, \delta \dot{q}
+L(q, \dot{q}, t) + \frac{\partial L}{\partial q}\ \delta q + \frac{\partial L}{\partial \dot{q}}\ \delta \dot{q}
 $$
 
 After substitution and simplification, the principle of least action can be written in the form:
