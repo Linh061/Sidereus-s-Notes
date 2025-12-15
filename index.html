@@ -10,6 +10,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <!-- KaTeX 数学公式样式 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- 可选：导航栏样式优化（解决二级菜单hover不显示） -->
+  <style>
+    .navbar-nav li:hover > ul { display: block !important; }
+    /* 移动端适配导航栏 */
+    @media (max-width: 768px) {
+      .navbar { padding: 0 10px !important; }
+    }
+  </style>
 </head>
 
 <body>
@@ -24,10 +32,14 @@
       repo: 'Linh061/Sidereus-s-Notes',
       basePath: '/Sidereus-s-Notes/', // 关键：匹配 GitHub Pages 路径
 
-      /* ===== 文档结构（侧边栏核心配置） ===== */
-      loadNavbar: true,
-      loadSidebar: true, // 简化写法，优先读取根目录 _sidebar.md
-      sidebarDepth: 3,   // 替代 subMaxLevel，统一目录层级
+      /* ===== 文档结构（侧边栏+导航栏核心配置） ===== */
+      loadSidebar: true, // 读取根目录 _sidebar.md
+      sidebarDepth: 3,   // 侧边栏目录层级
+      loadNavbar: true,  // 新增：读取根目录 _navbar.md（核心）
+      alias: {           // 新增：路径别名容错（避免导航栏/侧边栏路径解析失败）
+        '/_sidebar.md': '/Sidereus-s-Notes/_sidebar.md',
+        '/_navbar.md': '/Sidereus-s-Notes/_navbar.md'
+      },
 
       /* ===== 搜索插件 ===== */
       search: {
@@ -44,7 +56,7 @@
         crossChapter: true
       },
 
-      /* ===== Giscus 评论区钩子（修复语法错误） ===== */
+      /* ===== Giscus 评论区钩子 ===== */
       plugins: [
         function (hook, vm) {
           // 1. 插入评论区容器
@@ -54,7 +66,7 @@
             `;
           });
 
-          // 2. 正确加载 Giscus 脚本（JS 方式创建，而非直接粘贴 HTML）
+          // 2. 加载 Giscus 脚本
           hook.doneEach(function () {
             if (document.getElementById('giscus-script')) return;
             const giscusScript = document.createElement('script');
@@ -62,7 +74,7 @@
             giscusScript.src = 'https://giscus.app/client.js';
             giscusScript.async = true;
             giscusScript.crossOrigin = 'anonymous';
-            // 配置 Giscus 参数（替换为你的实际值，已填你提供的参数）
+            // Giscus 参数（已填你的值）
             giscusScript.setAttribute('data-repo', 'Linh061/Sidereus-s-Notes');
             giscusScript.setAttribute('data-repo-id', 'R_kgDOQo2YYw');
             giscusScript.setAttribute('data-category', 'Announcements');
