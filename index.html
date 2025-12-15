@@ -24,16 +24,19 @@
       repo: 'Linh061/Sidereus-s-Notes',
       basePath: '/Sidereus-s-Notes/', // 关键：匹配 GitHub Pages 路径
 
-      /* ===== 文档结构 ===== */
-      loadSidebar: '_sidebar.md',
-      subMaxLevel: 3,
+      /* ===== 文档结构（侧边栏核心配置） ===== */
+      loadSidebar: true, // 简化写法，优先读取根目录 _sidebar.md
+      sidebarDepth: 3,   // 替代 subMaxLevel，统一目录层级
+      alias: {           // 新增：容错别名，避免路径错误
+        '/_sidebar.md': '/_sidebar.md'
+      },
 
       /* ===== 搜索插件 ===== */
       search: {
         paths: 'auto',
         placeholder: 'Search',
         noData: 'No results found',
-        depth: 6 // 新增：搜索深度，覆盖更多文档
+        depth: 6
       },
 
       /* ===== 分页插件 ===== */
@@ -43,41 +46,38 @@
         crossChapter: true
       },
 
-      /* ===== Giscus 评论区钩子 ===== */
-      // 页面渲染完成后加载评论区
+      /* ===== Giscus 评论区钩子（修复语法错误） ===== */
       plugins: [
         function (hook, vm) {
-          // 1. 定义评论区容器（放在文档底部）
+          // 1. 插入评论区容器
           hook.afterEach(function (html) {
             return html + `
               <div id="giscus-container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;"></div>
             `;
           });
 
-          // 2. 加载 Giscus 脚本（避免重复加载）
+          // 2. 正确加载 Giscus 脚本（JS 方式创建，而非直接粘贴 HTML）
           hook.doneEach(function () {
             if (document.getElementById('giscus-script')) return;
-            const script = document.createElement('script');
-            script.id = 'giscus-script';
-            script.src = 'https://giscus.app/client.js';
-            script.async = true;
-            script.crossOrigin = 'anonymous';
-            // 替换为你在 Giscus 官网生成的参数！！！
-<script src="https://giscus.app/client.js"
-        data-repo="Linh061/Sidereus-s-Notes"
-        data-repo-id="R_kgDOQo2YYw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOQo2YY84CzzgT"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
+            const giscusScript = document.createElement('script');
+            giscusScript.id = 'giscus-script';
+            giscusScript.src = 'https://giscus.app/client.js';
+            giscusScript.async = true;
+            giscusScript.crossOrigin = 'anonymous';
+            // 配置 Giscus 参数（替换为你的实际值，已填你提供的参数）
+            giscusScript.setAttribute('data-repo', 'Linh061/Sidereus-s-Notes');
+            giscusScript.setAttribute('data-repo-id', 'R_kgDOQo2YYw');
+            giscusScript.setAttribute('data-category', 'Announcements');
+            giscusScript.setAttribute('data-category-id', 'DIC_kwDOQo2YY84CzzgT');
+            giscusScript.setAttribute('data-mapping', 'pathname');
+            giscusScript.setAttribute('data-strict', '0');
+            giscusScript.setAttribute('data-reactions-enabled', '1');
+            giscusScript.setAttribute('data-emit-metadata', '0');
+            giscusScript.setAttribute('data-input-position', 'bottom');
+            giscusScript.setAttribute('data-theme', 'preferred_color_scheme');
+            giscusScript.setAttribute('data-lang', 'zh-CN');
+            // 将脚本插入评论区容器
+            document.getElementById('giscus-container').appendChild(giscusScript);
           });
         }
       ]
