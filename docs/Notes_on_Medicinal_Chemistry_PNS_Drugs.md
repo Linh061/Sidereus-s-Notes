@@ -1,4 +1,7 @@
 # Peripheral Nervous System Agents
 
-### Autonomatic Nervous System
-The ANS, sometimes called the visceral nervous system and formerly the vegetative nervous system, is a division of the nervous system that operate internal organs, smooth muscle and glands. The ANS has been historically divided into the sympathetic, parasympathetic and enteric nervous system 
+### Introduction
+The peripheral nervous system can be divided into two componets, a **somatic nervous system** and an **autonomic nervous system**. The former includes the sensory nervous system and consist of sensory nerves and somatic nerves, and many nerves which hold both functions. The latter has been historically divided into the sympathetic, parasympathetic and enteric nervous system. 
+
+There are two kinds of neurons involved in the transmission of any signal through the sympathetic system: preganglionic and postganglionic. At the synapses within the ganglia, preganglionic neurons release acetylcholine, a neurotransmitter that activates nicotinic acetylcholines receptors on postganglionic neurons. In response to this stimulus, the postganglionic neurons release norepinephrine, which activates adrenergic receptors that are present on the peripheral target tissues.
+
